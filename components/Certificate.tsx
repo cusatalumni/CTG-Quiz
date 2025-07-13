@@ -25,7 +25,7 @@ const Certificate: React.FC<CertificateProps> = ({ name, score, totalQuestions, 
             filename: `Certificate-${name.replace(/ /g, '_')}.pdf`,
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { scale: 3, backgroundColor: null, useCORS: true }, // Higher scale for better quality
-            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
         };
         html2pdf().from(element).set(opt).save();
     }
@@ -36,9 +36,9 @@ const Certificate: React.FC<CertificateProps> = ({ name, score, totalQuestions, 
   return (
      <div className="w-full max-w-5xl mx-auto p-4">
         {/* Certificate Container for PDF generation - Adjusted for single-page fit */}
-        <div id="certificate-content" className="bg-white text-black p-4">
+        <div id="certificate-content" className="bg-white text-black p-4 shadow-2xl">
             <div className="border-4 border-amber-600 p-2">
-                <div className="border-2 border-amber-700 p-6 flex flex-col items-center justify-center text-center relative aspect-[11/8.5]">
+                <div className="border-2 border-amber-700 p-6 flex flex-col items-center justify-center text-center relative aspect-[297/210]">
                     
                     <div className="absolute top-8 right-8">
                         <div className="w-28 h-28 border-4 border-amber-700 rounded-full flex flex-col items-center justify-center bg-amber-50">
