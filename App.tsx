@@ -241,18 +241,22 @@ const App: React.FC = () => {
       </div>
       
       <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="w-full sm:w-auto">
-          {!isAnswered && (
-             <button
-              onClick={handleFetchHint}
-              disabled={isHintLoading || !!hint}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isHintLoading ? <Spinner /> : <LightbulbIcon className="w-5 h-5" />}
-              <span>{isHintLoading ? "Getting Hint..." : "Get a Hint"}</span>
-            </button>
-          )}
-          {hint && !isHintLoading && <p className="text-slate-400 italic text-center sm:text-left mt-2 sm:mt-0 bg-slate-800 p-3 rounded-lg">{hint}</p>}
+        <div className="w-full sm:w-auto min-h-[52px] flex items-center justify-center sm:justify-start">
+            {/* Show hint button only if no hint is present and question is not answered */}
+            {!hint && !isAnswered && (
+              <button
+                onClick={handleFetchHint}
+                disabled={isHintLoading}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isHintLoading ? <Spinner /> : <LightbulbIcon className="w-5 h-5" />}
+                <span>{isHintLoading ? "Getting Hint..." : "Get a Hint"}</span>
+              </button>
+            )}
+            {/* Show hint if it exists. Replaces the button. */}
+            {hint && (
+              <p className="text-slate-400 italic text-center sm:text-left bg-slate-800 p-3 rounded-lg max-w-md">{hint}</p>
+            )}
         </div>
 
         {isAnswered && (
