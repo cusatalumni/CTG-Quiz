@@ -8,7 +8,7 @@ import Certificate from './components/Certificate';
 const QUIZ_LENGTH = 20;
 const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTfT1NU4iS6T_dYt5R0QVrbPn1X0WfgUU84xBws3GjX-DQwWzHv-mGItn11R5iYIkZbF6Sltfa_qc66/pub?output=csv';
 const PASSING_PERCENTAGE = 75;
-const QUESTION_TIME_LIMIT = 30;
+const QUESTION_TIME_LIMIT = 45;
 
 
 const shuffleAndSelectQuestions = (questions: Question[], count: number): Question[] => {
