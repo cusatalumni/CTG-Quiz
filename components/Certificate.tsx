@@ -21,7 +21,7 @@ const Certificate: React.FC<CertificateProps> = ({ name, score, totalQuestions, 
     const element = document.getElementById('certificate-content');
     if (element) {
         const opt = {
-            margin:       0,
+            margin:       [0, 0, 0, 0], // Explicitly set all margins to 0
             filename:     `Certificate-${name.replace(/ /g, '_')}.pdf`,
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  {
@@ -67,7 +67,7 @@ const Certificate: React.FC<CertificateProps> = ({ name, score, totalQuestions, 
                     <h1 className="text-5xl font-serif text-amber-800 my-4 break-words" style={{fontFamily: "'Cormorant Garamond', serif"}}>{name}</h1>
                     
                     <p className="text-lg text-gray-600">for successfully completing the</p>
-                    <p className="text-3xl font-semibold text-gray-800 font-serif my-2">Concrete Technology Qualification Exam</p>
+                    <p className="text-3xl font-semibold text-gray-800 font-serif my-2">Concrete Technology Proficiency Certificate</p>
                     
                     <div className="flex items-center justify-center my-4">
                         <p className="text-lg italic text-gray-700 max-w-2xl mx-auto">"{standardMessage}"</p>
@@ -108,9 +108,6 @@ const Certificate: React.FC<CertificateProps> = ({ name, score, totalQuestions, 
                 Download as PDF
             </button>
         </div>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Great+Vibes&display=swap" rel="stylesheet" />
      </div>
   );
 };
